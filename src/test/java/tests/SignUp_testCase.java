@@ -26,23 +26,6 @@ public class SignUp_testCase extends TestBase{
         Assert.assertTrue(signUpPage.getSignUpButton().isDisplayed());
 
     }
-    @Test
-    public void verifySignUpFields2() throws InterruptedException {
-
-        SignIn_page signInPage = new SignIn_page();
-
-        signInPage.getSignUpLink().click();
-//        Thread.sleep(3000);
 
 
-        SignUpPage signUpPage = new SignUpPage();
-
-        Assert.assertTrue(signUpPage.getFirstName().isDisplayed());
-        Assert.assertTrue(signUpPage.getLastName().isDisplayed());
-        Assert.assertTrue(signUpPage.getEmail().isDisplayed());
-        Assert.assertTrue(signUpPage.getPassword().isDisplayed());
-        Assert.assertTrue(signUpPage.getSignUpButton().isDisplayed());
-
-
-    }
     }
