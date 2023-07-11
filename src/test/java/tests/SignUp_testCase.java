@@ -63,7 +63,6 @@ public class SignUp_testCase extends TestBase{
 
 
 
-
         signUpPage.getLastName().sendKeys(faker.name().lastName());
         signUpPage.getEmail().sendKeys(faker.internet().emailAddress());
         signUpPage.getPassword().sendKeys("123");
@@ -73,5 +72,22 @@ public class SignUp_testCase extends TestBase{
         //Assert.assertFalse(signUpPage.getSignUpMessage().isDisplayed());
         Assert.assertFalse(!(signUpPage.getSignUpMessage().isDisplayed()));
     }
+
+//    @Test
+//    public void verifyTheFirstNameMaxLengthIs50Char() throws InterruptedException {
+//
+//        SignIn_page signInPage = new SignIn_page();
+//
+//        signInPage.getSignUpLink().click();
+//        //Thread.sleep(3000);
+//        SignUpPage signUpPage = new SignUpPage();
+//
+//
+//    }
+
+
+
+
+
 
 }
