@@ -25,6 +25,15 @@ public class SignUpPage {
     @FindBy(id = "register")
     private WebElement signUpButton;
 
+
+    @FindBy(xpath = "//div[@class='card-title']//h4")
+    private WebElement signUpMessage;
+
+
+    public WebElement getSignUpMessage() {
+        return signUpMessage;
+    }
+
     public WebElement getFirstName() {
         return firstName;
     }
