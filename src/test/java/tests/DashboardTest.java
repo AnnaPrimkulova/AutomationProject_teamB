@@ -26,6 +26,10 @@ public class DashboardTest extends TestBase{
 
 
 
+//        DashboardFildsPage dashboardFildsPage = new DashboardFildsPage();
+//        Assert.assertTrue(dashboardFildsPage.getBankLogo().isDisplayed());// BankLogo is displayed
+//        Assert.assertTrue(dashboardFildsPage.getMortgageApplication().isDisplayed());
+//        Assert.assertTrue(dashboardFildsPage.getApplicationList().isDisplayed());
 
     }
 
