@@ -74,6 +74,8 @@ public class MorgageAplicationTest extends TestBase{
         mortgageAplicationFildsPage.getNextbuttom().click();
         Assert.assertFalse(mortgageAplicationFildsPage.getNextbuttom().isEnabled());
 
+
+        // hi
     }
 
 }
