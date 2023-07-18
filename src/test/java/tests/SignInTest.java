@@ -17,8 +17,8 @@ public class SignInTest extends TestBase {
     @Test
     public void SignInPage() {
 
-        SignInFildsPage signInFildsPage = new SignInFildsPage();
-        signInFildsPage.getMovesigninpage().click();
+//        SignInFildsPage signInFildsPage = new SignInFildsPage();
+//        signInFildsPage.getMovesigninpage().click();
 
         SignInPage signInPage = new SignInPage();
         signInPage.SignInCredentials();

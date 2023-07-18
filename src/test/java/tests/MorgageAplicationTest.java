@@ -39,7 +39,7 @@ public class MorgageAplicationTest extends TestBase{
         Select select =new Select(mortgageAplicationFildsPage.getMARITALSTATUS());
         select.selectByVisibleText("Married");
 
-        mortgageAplicationFildsPage.getCELLPHONE().sendKeys("9133124054",Keys.TAB);
+        mortgageAplicationFildsPage.getCELLPHONE().sendKeys("913-312-4054",Keys.TAB,"913-312-4054");
         mortgageAplicationFildsPage.getNext().click();
 
         mortgageAplicationFildsPage.getMONTHLYRENTALPAYMENT().sendKeys("2100");
