@@ -27,7 +27,7 @@ public class SignInFildsPage {
     public WebElement getWellcomeText() {return WellcomeText;}
 
 
-    @FindBy(xpath = "//button[@class='btn btn-primary glow w-100 position-relative']")
+    @FindBy(xpath = "//button[@class='btn btn-primary glow w-100 position-relative']")////button[@type='submit']
     private WebElement signinbutton;
 
     public WebElement getSigninbutton() {

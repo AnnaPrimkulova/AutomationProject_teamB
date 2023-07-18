@@ -5,6 +5,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import utils.ConfigReader;
 import utils.Driver;
+import utils.SeleniumUtils;
 
 
 public class SignInPage {
@@ -19,7 +20,10 @@ public class SignInPage {
         SignIn(ConfigReader.getProperty("email"),ConfigReader.getProperty("password"));
     }
     public void SignIn(String email, String password){
-        usernameField.sendKeys(email,Keys.TAB,password,Keys.ENTER);
+
+        usernameField.sendKeys(email,Keys.TAB,password);
+        SignInFildsPage signInFildsPage = new SignInFildsPage();
+        SeleniumUtils.jsClick(signInFildsPage.getSigninbutton());
     }
 
 
