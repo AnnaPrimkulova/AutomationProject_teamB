@@ -72,10 +72,5 @@ public class MorgageAplicationTest2 extends TestBase {
 
 
 
-
-
-
-
-
     }
 }
