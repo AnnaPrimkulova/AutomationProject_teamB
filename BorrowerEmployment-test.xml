@@ -1,0 +1,14 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Login Tests">
+
+    <test name="Dashboard Test" parallel="methods" thread-count="5">
+
+        <classes>
+            <class name="tests.BorrowerEmploymentTest"></class>
+        </classes>
+
+    </test>
+
+
+
+</suite>

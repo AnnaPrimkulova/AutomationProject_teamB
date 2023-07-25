@@ -14,17 +14,6 @@ import java.util.List;
 
 public class BorrowerEmploymentTest extends TestBase {
 
-
-//Borrower Gross Monthly Employment Income section:
-//    oThe section should contain fields for GROSS MONTHLY INCOME,
-//    MONTHLY OVERTIME, MONTHLY BONUSES, MONTHLY COMMISSIONS,
-//    MONTHLY DIVIDENDS/INTEREST, and Borrower Total Monthly Income.
-//    oAll fields in this section should only accept numeric input (digits and
-//decimal points) with a maximum of two decimal places. The maximum
-//    character limit for the fields should be 12 characters.
-//    oGROSS MONTHLY INCOME should be a required input field.
-//            oThe "Borrower Total Monthly Income" field should be automatically
-//    calculated based on the other fields.
 //            Additional Gross Monthly Income section:
 //    oThe section should contain three sets of INCOME SOURCE dropdowns
 //    and Amount fields.
@@ -66,7 +55,7 @@ public class BorrowerEmploymentTest extends TestBase {
 
     }
 
-    @Test
+    @Test  //1
     public void EmploymentAndIncome_EmployerNameFild() throws InterruptedException {
 //    EMPLOYER NAME should be a required input field.
 
@@ -179,7 +168,7 @@ public class BorrowerEmploymentTest extends TestBase {
 
     @Test
     public void EmploymentAndIncome_EndDate() throws InterruptedException {
-        //    oIf the user checks the checkbox labeled "This is my current job", end
+        //    If the user checks the checkbox labeled "This is my current job", end
 //    date for the job should be not displayed.
 
         MorgageAplicationTest morgageAplicationTest = new MorgageAplicationTest();
@@ -190,7 +179,7 @@ public class BorrowerEmploymentTest extends TestBase {
 
     }
 
-    @Test
+    @Test   //2
     public void EmploymentAndIncome_Clear() throws InterruptedException {
         //    oThe section should have a "Clear" option that displays a warning pop-
 //    up about clearing the information.
@@ -323,11 +312,11 @@ public class BorrowerEmploymentTest extends TestBase {
 
     }
 
-    @Test
+    @Test  //3
     public void AnotherEmployerFildIn_Clear() throws InterruptedException {
 
-        //            oThe "Clear" option should only clear the information in that section, not
-//    any other sections.
+        //      The "Clear" option should only clear the information in that section, not
+        //    any other sections.
 
         MorgageAplicationTest morgageAplicationTest = new MorgageAplicationTest();
         morgageAplicationTest.MorgageAlication();
@@ -353,12 +342,11 @@ public class BorrowerEmploymentTest extends TestBase {
 
         borrowerEmploymentPage.getNext().click();
 //       Assert.assertFalse( borrowerEmploymentPage.getTHIS_FIELD_IS_REQUIRED().isDisplayed());
-        Thread.sleep(2000);
         Assert.assertTrue(borrowerEmploymentPage.getPreApproval_Inquiry().isDisplayed());
 
     }
 
-    @Test
+    @Test //3
     public void AnotherEmployerFildIn_Remove() throws InterruptedException {
 
         //    oThe user should be able to remove a section using the "Remove"
@@ -376,6 +364,116 @@ public class BorrowerEmploymentTest extends TestBase {
         borrowerEmploymentPage.getRemove().click();
         borrowerEmploymentPage.getYes().click();
         Assert.assertFalse(borrowerEmploymentPage.getEmployer2_fild().isDisplayed());
+
+    }
+
+    @Test
+    public void BorrowerGrossMonthlyEmploymentIncome() throws InterruptedException {
+
+        //Borrower Gross Monthly Employment Income section:
+//    oThe section should contain fields for GROSS MONTHLY INCOME,
+//    MONTHLY OVERTIME, MONTHLY BONUSES, MONTHLY COMMISSIONS,
+//    MONTHLY DIVIDENDS/INTEREST, and Borrower Total Monthly Income.
+
+        MorgageAplicationTest morgageAplicationTest = new MorgageAplicationTest();
+        morgageAplicationTest.MorgageAlication();
+
+        BorrowerEmploymentPage borrowerEmploymentPage = new BorrowerEmploymentPage();
+        borrowerEmploymentPage.getThisIsMyCurrentJob().click();
+
+        Assert.assertTrue(borrowerEmploymentPage.getGross_Monthly_Income_text().isDisplayed());
+        Assert.assertTrue(borrowerEmploymentPage.getMonthly_Overtime_text().isDisplayed());
+        Assert.assertTrue(borrowerEmploymentPage.getMonthly_Bonuses_text().isDisplayed());
+        Assert.assertTrue(borrowerEmploymentPage.getMonthly_Commissions_text().isDisplayed());
+        Assert.assertTrue(borrowerEmploymentPage.getMONTHLY_DIVIDENTS_INTEREST_text().isDisplayed());
+    }
+
+    @Test
+    public void negativeBorrowerGrossMonthlyEmploymentIncome() throws InterruptedException {
+
+        //    oAll fields in this section should only accept numeric input (digits and
+//decimal points) with a maximum of two decimal places.
+
+        MorgageAplicationTest morgageAplicationTest = new MorgageAplicationTest();
+        morgageAplicationTest.MorgageAlication();
+
+        BorrowerEmploymentPage borrowerEmploymentPage = new BorrowerEmploymentPage();
+        borrowerEmploymentPage.getThisIsMyCurrentJob().click();
+
+        borrowerEmploymentPage.getEmployerNameFild().sendKeys(faker.idNumber().invalid(), Keys.TAB, faker.idNumber().invalid()
+                , Keys.TAB, faker.idNumber().invalid(), Keys.TAB, Keys.ENTER, Keys.ARROW_DOWN, Keys.ENTER, Keys.ARROW_DOWN, Keys.ENTER);
+
+        borrowerEmploymentPage.getGROSS_MONTHLY_INCOME().sendKeys("10000", Keys.TAB, "600"
+                , Keys.TAB, "1000", Keys.TAB, "800", Keys.TAB, "24");
+
+        borrowerEmploymentPage.getNext().click();
+
+
+        Thread.sleep(2000);
+        Assert.assertFalse(borrowerEmploymentPage.getPreApproval_Inquiry().isDisplayed());
+
+
+
+    }
+    @Test
+    public void negative2BorrowerGrossMonthlyEmploymentIncome() throws InterruptedException {
+
+//   The maximum character limit for the fields should be 12 characters.
+//    oGROSS MONTHLY INCOME should be a required input field.
+//            oThe "Borrower Total Monthly Income" field should be automatically
+//    calculated based on the other fields.
+
+        MorgageAplicationTest morgageAplicationTest = new MorgageAplicationTest();
+        morgageAplicationTest.MorgageAlication();
+
+        BorrowerEmploymentPage borrowerEmploymentPage = new BorrowerEmploymentPage();
+        borrowerEmploymentPage.getThisIsMyCurrentJob().click();
+
+        borrowerEmploymentPage.getEmployerNameFild().sendKeys(faker.idNumber().invalid(), Keys.TAB, faker.idNumber().invalid()
+                , Keys.TAB, faker.idNumber().invalid(), Keys.TAB, Keys.ENTER, Keys.ARROW_DOWN, Keys.ENTER, Keys.ARROW_DOWN, Keys.ENTER);
+
+        borrowerEmploymentPage.getGROSS_MONTHLY_INCOME().sendKeys("1000002020120", Keys.TAB, "600"
+                , Keys.TAB, "100056213566411", Keys.TAB, "8002311635435", Keys.TAB, "24");
+
+        borrowerEmploymentPage.getNext().click();
+
+
+        Thread.sleep(2000);
+        Assert.assertFalse(borrowerEmploymentPage.getPreApproval_Inquiry().isDisplayed());
+
+
+
+    }
+
+    @Test  //4
+    public void negative3BorrowerGrossMonthlyEmploymentIncome() throws InterruptedException {
+
+
+//              The "Borrower Total Monthly Income" field should be automatically
+//    calculated based on the other fields.
+
+        MorgageAplicationTest morgageAplicationTest = new MorgageAplicationTest();
+        morgageAplicationTest.MorgageAlication();
+
+        BorrowerEmploymentPage borrowerEmploymentPage = new BorrowerEmploymentPage();
+        borrowerEmploymentPage.getThisIsMyCurrentJob().click();
+
+        borrowerEmploymentPage.getEmployerNameFild().sendKeys(faker.idNumber().invalid(), Keys.TAB, faker.idNumber().invalid()
+                , Keys.TAB, faker.idNumber().invalid(), Keys.TAB, Keys.ENTER, Keys.ARROW_DOWN, Keys.ENTER, Keys.ARROW_DOWN, Keys.ENTER);
+
+        borrowerEmploymentPage.getGROSS_MONTHLY_INCOME().sendKeys("1000002020120", Keys.TAB, "600"
+                , Keys.TAB, "100056213566411", Keys.TAB, "8002311635435", Keys.TAB, "24");
+
+
+        System.out.println(borrowerEmploymentPage.getBorrower_Total_Monthly_Income().getText());
+        Thread.sleep(2000);
+        borrowerEmploymentPage.getNext().click();
+
+
+        Thread.sleep(2000);
+        Assert.assertTrue(borrowerEmploymentPage.getPreApproval_Inquiry().isDisplayed());
+
+
 
     }
 }

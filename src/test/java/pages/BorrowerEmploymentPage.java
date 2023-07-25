@@ -25,19 +25,14 @@ public class BorrowerEmploymentPage {
 
     @FindBy(xpath = "(//label[.='Employer Name'])[1]")
     private WebElement EmployerName;
-
     @FindBy(xpath = "(//label[.='Position'])[1]")
     private WebElement POSITION;
-
     @FindBy(xpath = "(//label[.='City'])[1]")
     private WebElement CITY;
-
     @FindBy(xpath = "(//label[.='State'])[1]")
     private WebElement STATE;
-
     @FindBy(xpath = "(//label[.='Start Date'])[1]")
     private WebElement STARTDATE;
-
     @FindBy(xpath = "(//label[.='End Date'])[1]")
     private WebElement ENDDATE;
 
@@ -100,6 +95,20 @@ public class BorrowerEmploymentPage {
     @FindBy(xpath = "//div[@class='form-group']//label[@id='monthlydividents-error']")
     private WebElement PLEASE_ENTER_A_VALID_NUMBER_DIVIDENTS_INTEREST;
 
+
+    @FindBy(xpath = "//label[.='Gross Monthly Income*']")
+    private WebElement Gross_Monthly_Income_text;
+    @FindBy(xpath = "//label[.='Monthly Overtime']")
+    private WebElement Monthly_Overtime_text;
+    @FindBy(xpath = "//label[.='Monthly Bonuses']")
+    private WebElement Monthly_Bonuses_text;
+    @FindBy(xpath = "//label[.='Monthly Commissions']")
+    private WebElement Monthly_Commissions_text;
+    @FindBy(xpath = "//label[.='Monthly Dividents/Interest']")
+    private WebElement MONTHLY_DIVIDENTS_INTEREST_text;
+
+
+
     @FindBy(xpath = "//input[@id='grossmonthlyincome']")
     private WebElement GROSS_MONTHLY_INCOME;
 
@@ -123,6 +132,12 @@ public class BorrowerEmploymentPage {
 
     @FindBy(xpath = "//div[.='This action will clear the form, would you like to continue?']")
     private WebElement Pop_up_clear;
+
+    @FindBy(xpath = "//div[@class='borrowertotalmonthlyincome']//span']")
+    private WebElement Borrower_Total_Monthly_Income;
+
+
+
 
 
 
