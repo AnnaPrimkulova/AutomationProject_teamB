@@ -86,5 +86,16 @@ public class MortgageAplicationFildsPage {
     private WebElement SAVE;
 
 
+    @FindBy(xpath = "//li[@aria-disabled='false']//a[.='Next']")
+    private WebElement ExpenNext;
+
+    @FindBy(xpath = "//input[@id='additionalfunds']")
+    private WebElement ADDITIONALFUNDS ;
+
+    @FindBy(xpath = "//fieldset[@id='steps-uid-0-p-1']//h6[.='Personal Information']")
+    private WebElement PersonalInfoText ;
+
+
+
 
 }

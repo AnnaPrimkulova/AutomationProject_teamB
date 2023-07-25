@@ -24,12 +24,12 @@ public class TestBase {
 
     }
 
-    @AfterMethod(alwaysRun = true)
-    public void tearDown(ITestResult testResult){
-
-
-        Driver.quitDriver();
-    }
+//    @AfterMethod(alwaysRun = true)
+//    public void tearDown(ITestResult testResult){
+//
+//
+//        Driver.quitDriver();
+//    }
 
 
 }
