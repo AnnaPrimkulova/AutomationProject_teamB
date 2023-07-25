@@ -43,10 +43,8 @@ public class MorgageAplicationTest extends TestBase{
         mortgageAplicationFildsPage.getNext().click();
 
         mortgageAplicationFildsPage.getMONTHLYRENTALPAYMENT().sendKeys("2100");
-        mortgageAplicationFildsPage.getSave().click();
+        mortgageAplicationFildsPage.getExpenNext().click();
 
-
-        System.out.println("hi");
 
 
     }
@@ -63,19 +61,15 @@ public class MorgageAplicationTest extends TestBase{
         Thread.sleep(2000);
         mortgageAplicationFildsPage.getMortgageApplication().click();
 
-
-
         SeleniumUtils.jsClick(mortgageAplicationFildsPage.getAREYOUWORKINGWITHAREALTOR());
-//        mortgageAplicationFildsPage.getAREYOUWORKINGWITHAREALTOR().click();
-
 
         mortgageAplicationFildsPage.getPURCHASEPRICE().sendKeys("350000");
         mortgageAplicationFildsPage.getDOWNPAYMENTAMOUNT().sendKeys("25000");
+        mortgageAplicationFildsPage.getADDITIONALFUNDS().sendKeys("5500");
+
         mortgageAplicationFildsPage.getNextbuttom().click();
-        Assert.assertFalse(mortgageAplicationFildsPage.getNextbuttom().isEnabled());
+        Assert.assertTrue(mortgageAplicationFildsPage.getPersonalInfoText().isEnabled());
 
-
-        // hi
     }
 
 }

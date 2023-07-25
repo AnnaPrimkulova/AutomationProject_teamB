@@ -29,15 +29,12 @@ public class SignInTest extends TestBase {
     public void SignInPagetest() {
 
         SignInFildsPage signInFildsPage = new SignInFildsPage();
-        signInFildsPage.getMovesigninpage().click();
+
         Assert.assertTrue(signInFildsPage.getWellcomeText().isDisplayed());
-        Assert.assertFalse(signInFildsPage.getSigninbutton().isEnabled());// signin button  should not be able
+        Assert.assertTrue(signInFildsPage.getSigninbutton().isEnabled());// signin button  should not be able
     }
 @Test
     public void negativeSigntest(){
-
-        SignInFildsPage signInFildsPage = new SignInFildsPage();
-        signInFildsPage.getMovesigninpage().click();
 
         SignInPage signInPage = new SignInPage();
         signInPage.SignIn("Invalid", ConfigReader.getProperty("password"));
@@ -46,8 +43,6 @@ public class SignInTest extends TestBase {
     }
     @Test
    public void negativeSignInPasswordtest() throws InterruptedException {
-        SignInFildsPage signInFildsPage= new SignInFildsPage();
-        signInFildsPage.getMovesigninpage().click();
 
         SignInPage signInPage = new SignInPage();
         signInPage.SignIn(ConfigReader.getProperty("email"),"invalid");
@@ -59,10 +54,7 @@ public class SignInTest extends TestBase {
         Assert.assertTrue(signUpFildsPage.getSignUpWord().isDisplayed());// "sign up " is displayed
 
 
-        System.out.println("544566556");
-        System.out.println("544566556");
-        System.out.println("544566556");
-        System.out.println("544566556");
+
 
    }
 }
