@@ -137,6 +137,10 @@ public class BorrowerEmploymentPage {
     private WebElement Borrower_Total_Monthly_Income;
 
 
+    @FindBy(xpath = "//select[@id='incomesource1']//option")
+    private List<WebElement> incomesource1;
+
+
 
 
 
