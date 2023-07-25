@@ -7,6 +7,8 @@ import utils.ConfigReader;
 import utils.Driver;
 import utils.SeleniumUtils;
 
+import java.awt.image.Kernel;
+
 
 public class SignInPage {
 
@@ -21,9 +23,9 @@ public class SignInPage {
     }
     public void SignIn(String email, String password){
 
-        usernameField.sendKeys(email,Keys.TAB,password);
-        SignInFildsPage signInFildsPage = new SignInFildsPage();
-        SeleniumUtils.jsClick(signInFildsPage.getSigninbutton());
+        usernameField.sendKeys(email,Keys.TAB,password, Keys.ENTER);
+//        SignInFildsPage signInFildsPage = new SignInFildsPage();
+//        SeleniumUtils.jsClick(signInFildsPage.getSigninbutton());
     }
 
 

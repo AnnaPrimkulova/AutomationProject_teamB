@@ -64,8 +64,8 @@ public class MorgageAplicationTest2 extends TestBase {
         mortgageAplicationFildsPage.getNext().click();
 
 
-        mortgageAplicationFildsPage.getMONTHLYRENTALPAYMENT().sendKeys("2100");
-        mortgageAplicationFildsPage.getSave().click();
+        mortgageAplicationFildsPage.getMONTHLYRENTALPAYMENT().sendKeys("5500");
+        mortgageAplicationFildsPage.getExpenNext().click();
 
 //        Assert.assertNotEquals(Driver.getDriver().getCurrentUrl(),"http://qa-duobank.us-east-2.elasticbeanstalk.com/mortgage.php");
 
