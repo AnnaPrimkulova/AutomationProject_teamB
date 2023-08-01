@@ -3,6 +3,7 @@ package tests;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.BorrowerEmploymentPage;
@@ -84,62 +85,15 @@ public class BorrowerEmploymentTest extends TestBase {
         borrowerEmploymentPage.getThisIsMyCurrentJob().click();
 
 
-        List<WebElement> elements = Driver.getDriver().findElements(By.xpath("//select[@id='state1']"));
+        List<WebElement> elements = new Select(Driver.getDriver().findElement(By.xpath("//select[@id='state1']"))).getOptions();
 
 
-        String expected = "[                                                                    Select One\n" +
-                "                                                                     Alabama (AL)\n" +
-                "  Alaska (AK)\n" +
-                "  Arizona (AZ)\n" +
-                "  Arkansas (AR)\n" +
-                "  California (CA)\n" +
-                "  Colorado (CO)\n" +
-                "  Connecticut (CT)\n" +
-                "  Delaware (DE)\n" +
-                "  Florida (FL)\n" +
-                "  Georgia (GA)\n" +
-                "  Hawaii (HI)\n" +
-                "  Idaho (ID)\n" +
-                "  Illinois (IL)\n" +
-                "  Indiana (IN)\n" +
-                "  Iowa (IA)\n" +
-                "  Kansas (KS)\n" +
-                "  Kentucky (KY)\n" +
-                "  Louisiana (LA)\n" +
-                "  Maine (ME)\n" +
-                "  Maryland (MD)\n" +
-                "  Massachusetts (MA)\n" +
-                "  Michigan (MI)\n" +
-                "  Minnesota (MN)\n" +
-                "  Mississippi (MS)\n" +
-                "  Missouri (MO)\n" +
-                "  Montana (MT)\n" +
-                "  Nebraska (NE)\n" +
-                "  Nevada (NV)\n" +
-                "  New Hampshire (NH)\n" +
-                "  New Jersey (NJ)\n" +
-                "  New Mexico (NM)\n" +
-                "  New York (NY)\n" +
-                "  North Carolina (NC)\n" +
-                "  North Dakota (ND)\n" +
-                "  Ohio (OH)\n" +
-                "  Oklahoma (OK)\n" +
-                "  Oregon (OR)\n" +
-                "  Pennsylvania (PA)\n" +
-                "  Rhode Island (RI)\n" +
-                "  South Carolina (SC)\n" +
-                "  South Dakota (SD)\n" +
-                "  Tennessee (TN)\n" +
-                "  Texas (TX)\n" +
-                "  Utah (UT)\n" +
-                "  Vermont (VT)\n" +
-                "  Virginia (VA)\n" +
-                "  Washington (WA)\n" +
-                "  West Virginia (WV)\n" +
-                "  Wisconsin (WI)\n" +
-                "  Wyoming (WY)\n" +
-                "                                                                   \n" +
-                "                                                                ]";
+        String expected = "[Select One, Alabama (AL), Alaska (AK), Arizona (AZ), Arkansas (AR), California (CA), Colorado (CO), Connecticut (CT)" +
+                ", Delaware (DE), Florida (FL), Georgia (GA), Hawaii (HI), Idaho (ID), Illinois (IL), Indiana (IN), Iowa (IA), Kansas (KS)" +
+                ", Kentucky (KY), Louisiana (LA), Maine (ME), Maryland (MD), Massachusetts (MA), Michigan (MI), Minnesota (MN), Mississippi (MS), Missouri (MO)" +
+                ", Montana (MT), Nebraska (NE), Nevada (NV), New Hampshire (NH), New Jersey (NJ), New Mexico (NM), New York (NY), North Carolina (NC), North Dakota (ND)" +
+                ", Ohio (OH), Oklahoma (OK), Oregon (OR), Pennsylvania (PA), Rhode Island (RI), South Carolina (SC), South Dakota (SD), Tennessee (TN), Texas (TX), Utah (UT)" +
+                ", Vermont (VT), Virginia (VA), Washington (WA), West Virginia (WV), Wisconsin (WI), Wyoming (WY)]";
 
         List<String> actual = new ArrayList<>();
         for (WebElement element : elements) {
@@ -413,8 +367,8 @@ public class BorrowerEmploymentTest extends TestBase {
         Assert.assertFalse(borrowerEmploymentPage.getPreApproval_Inquiry().isDisplayed());
 
 
-
     }
+
     @Test
     public void negative2BorrowerGrossMonthlyEmploymentIncome() throws InterruptedException {
 
@@ -440,7 +394,6 @@ public class BorrowerEmploymentTest extends TestBase {
 
         Thread.sleep(2000);
         Assert.assertFalse(borrowerEmploymentPage.getPreApproval_Inquiry().isDisplayed());
-
 
 
     }
@@ -473,6 +426,28 @@ public class BorrowerEmploymentTest extends TestBase {
         Thread.sleep(2000);
         Assert.assertTrue(borrowerEmploymentPage.getPreApproval_Inquiry().isDisplayed());
 
+
+    }
+
+    @Test  //4
+    public void AdditionalGrossMonthlyIncome() throws InterruptedException {
+
+        MorgageAplicationTest morgageAplicationTest = new MorgageAplicationTest();
+        morgageAplicationTest.MorgageAlication();
+
+//        BorrowerEmploymentPage borrowerEmploymentPage = new BorrowerEmploymentPage();
+
+//        final List<String> elementsText = SeleniumUtils.getElementsText(Driver.getDriver().findElements(By.xpath("//select[@id='incomesource1']")));
+//        System.out.println(elementsText);
+
+        List<WebElement> elements = Driver.getDriver().findElements(By.xpath("//select[@id='incomesource1']//option"));
+
+        System.out.println(elements.size());
+        List<String> actual = new ArrayList<>();
+        for (WebElement element : elements) {
+
+            System.out.println(actual.add(element.getText()));
+        }
 
 
     }
